@@ -1,5 +1,5 @@
 module.exports = {
-	entry: "./src/index.jsx",
+	entry: "./src/app.js",
 	output: {
 		path: "build",
 		filename: 'index.js'
@@ -8,6 +8,9 @@ module.exports = {
 		extensions: ['', '.js', '.jsx']
 	},
 	module: {
-		loaders: [{test: /\.jsx$/, loader: 'jsx-loader'}]
+		loaders: [
+			{test: /\.jsx$/, loader: 'jsx-loader'},
+			{ test: /\.css$/, loader: 'style-loader!css-loader' }
+		]
 	}
 }

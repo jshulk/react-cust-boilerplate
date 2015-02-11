@@ -1,11 +1,16 @@
 var React = require("react");
-var HelloComponent = React.createClass({
-	render: function(){
-		return <h1>Hello, World</h1>;
-	}
+var  NewsList = require("./NewsList");
+var $ = require("jquery");
+
+require("../css/app.css");
+
+$.ajax({
+	url: "/json/items.json"
+}).then(function(items){
+	console.log("items", items);
+	React.render(
+		<NewsList items={items} />,
+		document.body
+	);
 });
 
-React.render(
-	<HelloComponent />,
-	document.body
-)
